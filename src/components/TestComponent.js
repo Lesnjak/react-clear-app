@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import TestComp from './TestComp';
-import smallPic from '../assets/images/photo.png';
+import {connect} from 'react-redux';
+import ComponentInner from './ComponentInner';
+
 
 
 class TestComponent extends Component {
-
-
     render() {
+        const list = this.props.list.map((list,index)=> <li key={index}><ComponentInner lists={list}/></li>)
         return (
-            <div>
-                <p>hello';\;jkhjk;'\;\hjk</p>
-                <img src={smallPic} alt=""/>
-                <TestComp/>
-            </div>
+            <ul>
+                {list}
+            </ul>
         )
     }
 
 }
 
-export default TestComponent;
+ export default connect(state=>{
+     return{
+         list:state.counter
+     }
+ })(TestComponent);
