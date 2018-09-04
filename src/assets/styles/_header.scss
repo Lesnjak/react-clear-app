@@ -1,3 +1,8 @@
-p{
-  font-size: 50px;
+strong{
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover{
+    color:brown;
+  }
 }
